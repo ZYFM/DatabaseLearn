@@ -1,0 +1,49 @@
+1、查看mysql中所有数据库:
+show databases;
+
+2、创建数据库：
+create database `movie`;
+
+3、切换数据库：
+use `movie;
+
+4、创建表
+create table `movie` (
+    `id` int not null auto_increment primary key,
+    `name` varchar(100) not null,
+    `points` float(2,1) not null,
+    `type` varchar(100) not null,
+    `time` int not null,
+    `language` varchar(50)
+) default charset 'utf8';
+
+
+5、查看表中数据:
+select * from `movie`;
+select `name`, `points`, `time` from `movie`;
+查询条件where参数
+查询结果排序order by
+
+6、插入数据到表中
+insert into movie value (1, 'The shawshank Redemption', 9.6, '剧情/犯罪', 142, '英语');
+或指定参数
+insert into movie(name, points, type, time, language) value ('The Shawshank Redemption', 9.6, '剧情/犯罪', 142, '英语');
+插入多条数据
+insert into `movie`(name, points, type, time, language) values 
+    ('The Shawshank Redemption', 9.6, '剧情/犯罪', 142, '英语'),
+    ('霸王别姬', 9.5, '剧情/爱情', 171, '汉语普通话');
+
+7、修改表中数据
+注意如果没有where条件，会把type列所有数据都修改
+update `movie` set `type` = '剧情/爱情/同性' where `id` = 2;
+
+
+8、删除表中数据
+注意如果没有where条件，会把整个表删空
+delete from `movie` where `id` = 1;
+
+9、删除表
+drop table `movie`
+
+10、删除数据库
+drop database movie;
